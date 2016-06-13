@@ -10,28 +10,24 @@
 
 
 @implementation DisplayDistance
-@synthesize coordinate;
-
--(MKAnnotationView* ) annotationsView{
+-(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location{
     
-    MKAnnotationView *annotationView=[[MKAnnotationView alloc]initWithAnnotation:self reuseIdentifier:@"car"];
+    self=[super init];
+    
+    _title=newTitle;
+    _coordinate=location;
+    
+    return self;
+    
+}
+-(MKAnnotationView* ) annotationView{
+    
+    MKAnnotationView *annotationView=[[MKAnnotationView alloc]initWithAnnotation:self reuseIdentifier:@"annotation"];
     annotationView.enabled=YES;
     annotationView.canShowCallout=YES;
     annotationView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.image=[UIImage imageNamed:@"Park"];
     return annotationView;
-    
-    
-    
-}
--(id)initWithTitles:(NSString *)newTitles Location:(CLLocationCoordinate2D)location{
-    
-    self=[super init];
-    
-    _time_to_target=newTitles;
-    _pinadress=location;
-    NSLog(@"wank");
-    return self;
     
     
     

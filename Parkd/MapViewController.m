@@ -74,12 +74,16 @@
             for (MKRoute *route in [response routes]) {
                 [self.Map addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
                 // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties
-                self.route_options=route; } } }];
+                self.route_options=route;
+            
+                DisplayDistance *distance_to_completion=[[DisplayDistance alloc]initWithTitle:@"Time To Distance" Location:self.route_options.polyline.coordinate];
+                
+                [self.Map addAnnotation:distance_to_completion];
+            
+            } } }];
     
     
-    DisplayDistance *distance_to_completion=[[DisplayDistance alloc]initWithTitles:@"Time To Distance" Location:self.route_options.polyline.coordinate];
-    
-    [self.Map addAnnotation:distance_to_completion];
+  
     
 }
 
@@ -114,19 +118,23 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     
-    MKAnnotationView *annotationView=nil;
+   
     
     if ([annotation isKindOfClass:[CarLocation class]]) {
         
     
-    CarLocation *carlocation_cord=(CarLocation *)annotation;
+    CarLocation *carlocation_cor=(CarLocation *)annotation;
         
     
    MKAnnotationView *annotationView =[mapView dequeueReusableAnnotationViewWithIdentifier:@"annotation"];
     if (annotationView==nil) {
-        annotationView=carlocation_cord.annotationView;
+        annotationView=carlocation_cor.annotationView;
         NSLog(@"FIRST IF STATEMENT");
+        
+        
+        
     }
+    return annotationView;
     }
    else if ([annotation isKindOfClass:[DisplayDistance class]]){
     
@@ -137,13 +145,15 @@
        
       MKAnnotationView *annotationView =[mapView dequeueReusableAnnotationViewWithIdentifier:@"car"];
        if (annotationView==nil) {
-           annotationView=disp_cord.annotationsView;
+           annotationView=disp_cord.annotationView;
            NSLog(@"SECOND IF STATEMENT");
        }
+       
+       return annotationView;
     }
 
-    return annotationView;
-
+    return nil;
+    
     }
     
 

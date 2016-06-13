@@ -11,10 +11,9 @@
 
 
 @interface DisplayDistance : NSObject<MKAnnotation>
-@property(nonatomic,readonly) CLLocationCoordinate2D pinadress;
-@property (copy, nonatomic) NSString *time_to_target;
-
--(id)initWithTitles:(NSString *)newTitles Location:(CLLocationCoordinate2D)location;
--(MKAnnotationView* ) annotationsView;
+@property(nonatomic,readonly) CLLocationCoordinate2D coordinate;
+@property (copy, nonatomic) NSString *title;
+-(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location;
+-(MKAnnotationView* ) annotationView;
 
 @end
