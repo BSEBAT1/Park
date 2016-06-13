@@ -7,9 +7,10 @@
 //
 
 #import "MapViewController.h"
+#import "DisplayDistance.h"
 
 @interface MapViewController ()
-
+@property MKRoute *route_options;
 @end
 
 @implementation MapViewController
@@ -56,6 +57,8 @@
     
     [self.Map addAnnotation:carlocation];
     
+   
+    
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
     [request setSource:[MKMapItem mapItemForCurrentLocation]];
     MKPlacemark *mkDest = [[MKPlacemark alloc]
@@ -63,20 +66,20 @@
                            addressDictionary:nil];
     
     [request setDestination:[[MKMapItem alloc] initWithPlacemark:mkDest]];
-    [request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
-    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+    [request setTransportType:MKDirectionsTransportTypeWalking]; // This can be limited to automobile and walking directions.
+    [request setRequestsAlternateRoutes:NO]; // Gives you several route options.
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
         if (!error) {
             for (MKRoute *route in [response routes]) {
                 [self.Map addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
-                // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
-            }
-        }
-    }];
+                // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties
+                self.route_options=route; } } }];
     
     
+    DisplayDistance *distance_to_completion=[[DisplayDistance alloc]initWithTitles:@"Time To Distance" Location:self.route_options.polyline.coordinate];
     
+    [self.Map addAnnotation:distance_to_completion];
     
 }
 
@@ -111,26 +114,45 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     
+    MKAnnotationView *annotationView=nil;
+    
     if ([annotation isKindOfClass:[CarLocation class]]) {
         
     
     CarLocation *carlocation_cord=(CarLocation *)annotation;
+        
     
-    MKAnnotationView *annotationView =[mapView dequeueReusableAnnotationViewWithIdentifier:@"annotation"];
+   MKAnnotationView *annotationView =[mapView dequeueReusableAnnotationViewWithIdentifier:@"annotation"];
     if (annotationView==nil) {
         annotationView=carlocation_cord.annotationView;
-        
+        NSLog(@"FIRST IF STATEMENT");
     }
-    else{
+    }
+   else if ([annotation isKindOfClass:[DisplayDistance class]]){
+    
         
-        annotationView.annotation=annotation;
-        
+       
+       DisplayDistance *disp_cord=(DisplayDistance *)annotation;
+       
+       
+      MKAnnotationView *annotationView =[mapView dequeueReusableAnnotationViewWithIdentifier:@"car"];
+       if (annotationView==nil) {
+           annotationView=disp_cord.annotationsView;
+           NSLog(@"SECOND IF STATEMENT");
+       }
+    }
+
+    return annotationView;
+
     }
     
-    return annotationView;
-}
-else return  nil;
-}
+
+
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

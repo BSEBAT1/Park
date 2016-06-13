@@ -16,6 +16,7 @@
 		52B729E01CF61508009D4A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B729DE1CF61508009D4A09 /* LaunchScreen.storyboard */; };
 		52B729E81CF618E3009D4A09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B729E71CF618E3009D4A09 /* MapKit.framework */; };
 		52B729EB1CF61CD2009D4A09 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B729EA1CF61CD2009D4A09 /* MapViewController.m */; };
+		52CD32801D0D04110044C121 /* DisplayDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD327F1D0D04110044C121 /* DisplayDistance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		52B729E71CF618E3009D4A09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52B729E91CF61CD2009D4A09 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		52B729EA1CF61CD2009D4A09 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		52CD327E1D0D04110044C121 /* DisplayDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayDistance.h; sourceTree = "<group>"; };
+		52CD327F1D0D04110044C121 /* DisplayDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayDistance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				52B729EA1CF61CD2009D4A09 /* MapViewController.m */,
 				52AC05BE1CFFCC0C0013E31F /* CarLocation.h */,
 				52AC05BF1CFFCC0C0013E31F /* CarLocation.m */,
+				52CD327E1D0D04110044C121 /* DisplayDistance.h */,
+				52CD327F1D0D04110044C121 /* DisplayDistance.m */,
 				52B729DC1CF61508009D4A09 /* Assets.xcassets */,
 				52B729DE1CF61508009D4A09 /* LaunchScreen.storyboard */,
 				52B729E11CF61508009D4A09 /* Info.plist */,
@@ -164,6 +169,7 @@
 				52B729DB1CF61508009D4A09 /* Parkd.xcdatamodeld in Sources */,
 				52B729EB1CF61CD2009D4A09 /* MapViewController.m in Sources */,
 				52B729D21CF61508009D4A09 /* AppDelegate.m in Sources */,
+				52CD32801D0D04110044C121 /* DisplayDistance.m in Sources */,
 				52B729CF1CF61508009D4A09 /* main.m in Sources */,
 				52AC05C01CFFCC0C0013E31F /* CarLocation.m in Sources */,
 			);
