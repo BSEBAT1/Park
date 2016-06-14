@@ -11,6 +11,8 @@
 
 @interface MapViewController ()
 @property MKRoute *route_options;
+@property MKDirections *go_directions;
+
 @end
 
 @implementation MapViewController
@@ -75,10 +77,22 @@
                 [self.Map addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
                 // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties
                 self.route_options=route;
+                int time_to_car=self.route_options.expectedTravelTime/60;
+                NSString *mins=@(time_to_car).stringValue;
+                NSString *literal_time=@" Mins";
+           NSString *time_display=[NSString stringWithFormat:@"%@%@",mins,literal_time];
+                
+                
+                
             
-                DisplayDistance *distance_to_completion=[[DisplayDistance alloc]initWithTitle:@"Time To Distance" Location:self.route_options.polyline.coordinate];
+                DisplayDistance *distance_to_completion=[[DisplayDistance alloc]initWithTitle:time_display Location:self.route_options.polyline.coordinate];
                 
                 [self.Map addAnnotation:distance_to_completion];
+                
+                
+                [self performSelector:@selector(selectAnnotation:) withObject:distance_to_completion afterDelay:0.5];
+                
+                
             
             } } }];
     
@@ -100,8 +114,11 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
     [self.Map setRegion:[self.Map regionThatFits:region] animated:YES];
+    
+    
+    
 }
 - (NSString *)deviceLocation {
     return [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
@@ -159,7 +176,10 @@
 
 
 
-
+- (void)selectAnnotation:(id < MKAnnotation >)annotation
+{
+    [self.Map selectAnnotation:annotation animated:YES];
+}
 
 
 
@@ -175,5 +195,8 @@
 */
 
 - (IBAction)Parkd:(id)sender {
+    
+    [self viewDidLoad];
+    NSLog(@"DIRECTIONS");
 }
 @end

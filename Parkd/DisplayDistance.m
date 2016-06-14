@@ -25,8 +25,8 @@
     MKAnnotationView *annotationView=[[MKAnnotationView alloc]initWithAnnotation:self reuseIdentifier:@"annotation"];
     annotationView.enabled=YES;
     annotationView.canShowCallout=YES;
-    annotationView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    annotationView.image=[UIImage imageNamed:@"Park"];
+//    annotationView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.image=[UIImage imageNamed:@"time_target"];
     return annotationView;
     
     
