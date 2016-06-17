@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2p0-fJ-3Tp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cvG-GS-mgb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Main Screen-->
+        <scene sceneID="lln-AR-YT2">
+            <objects>
+                <viewController id="RFZ-cg-ahK" customClass="MainScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lD9-K2-AtO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xjb-zO-99r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="40u-WM-YFb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-LL-Lj4">
+                                <rect key="frame" x="137" y="319" width="100" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Set_Location:" destination="RFZ-cg-ahK" eventType="touchUpInside" id="0kN-Wk-rvx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ily-hY-dtx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPV-FE-5we" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.5" y="481.5"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="MmU-v4-Bb6">
             <objects>
@@ -15,14 +44,14 @@
                         <viewControllerLayoutGuide type="bottom" id="TX0-gi-VHN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WwH-9Z-oVP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SLB-yf-TVw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="529"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBY-Kr-fxk">
-                                <rect key="frame" x="0.0" y="529" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="628" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Referesh" id="D16-YR-2Tr">
                                         <connections>
@@ -31,8 +60,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFL-Lc-PhQ">
-                                <rect key="frame" x="0.0" y="-7" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFL-Lc-PhQ">
+                                <rect key="frame" x="0.0" y="-7" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Parkd" id="fqm-iq-tUI"/>
                                 </items>
@@ -53,32 +82,32 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kfv-5o-pse"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Map" destination="SLB-yf-TVw" id="4qQ-ox-Clh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKm-fa-qgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="432"/>
+            <point key="canvasLocation" x="2409" y="432"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Rvs-E0-Nij">
+        <scene sceneID="wN3-0j-OF4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2p0-fJ-3Tp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cvG-GS-mgb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cav-Of-g9S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYs-W5-KHR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dA3-1E-Ax4" kind="relationship" relationship="rootViewController" id="IxC-We-vPl"/>
+                        <segue destination="RFZ-cg-ahK" kind="relationship" relationship="rootViewController" id="v4B-VA-jH6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OMr-eH-V40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YpD-fR-FK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="432"/>
+            <point key="canvasLocation" x="1180" y="481"/>
         </scene>
     </scenes>
 </document>

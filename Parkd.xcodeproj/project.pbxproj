@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520052381D10FF5000E32A31 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520052371D10FF5000E32A31 /* CoreLocation.framework */; };
+		5200523B1D11052300E32A31 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200523A1D11052300E32A31 /* MainScreen.m */; };
 		52AC05C01CFFCC0C0013E31F /* CarLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC05BF1CFFCC0C0013E31F /* CarLocation.m */; };
 		52B729CF1CF61508009D4A09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B729CE1CF61508009D4A09 /* main.m */; };
 		52B729D21CF61508009D4A09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B729D11CF61508009D4A09 /* AppDelegate.m */; };
@@ -17,9 +19,15 @@
 		52B729E81CF618E3009D4A09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B729E71CF618E3009D4A09 /* MapKit.framework */; };
 		52B729EB1CF61CD2009D4A09 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B729EA1CF61CD2009D4A09 /* MapViewController.m */; };
 		52CD32801D0D04110044C121 /* DisplayDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD327F1D0D04110044C121 /* DisplayDistance.m */; };
+		52FD92551D1375D1003FE27C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FD92541D1375D1003FE27C /* CoreData.framework */; };
+		52FD925A1D137A0A003FE27C /* CarMarker+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FD92571D137A0A003FE27C /* CarMarker+CoreDataProperties.m */; };
+		52FD925B1D137A0A003FE27C /* CarMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FD92591D137A0A003FE27C /* CarMarker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520052371D10FF5000E32A31 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		520052391D11052300E32A31 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
+		5200523A1D11052300E32A31 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 		52AC05BE1CFFCC0C0013E31F /* CarLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarLocation.h; sourceTree = "<group>"; };
 		52AC05BF1CFFCC0C0013E31F /* CarLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarLocation.m; sourceTree = "<group>"; };
 		52B729CA1CF61508009D4A09 /* Parkd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +44,11 @@
 		52B729EA1CF61CD2009D4A09 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		52CD327E1D0D04110044C121 /* DisplayDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayDistance.h; sourceTree = "<group>"; };
 		52CD327F1D0D04110044C121 /* DisplayDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayDistance.m; sourceTree = "<group>"; };
+		52FD92541D1375D1003FE27C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52FD92561D137A0A003FE27C /* CarMarker+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarMarker+CoreDataProperties.h"; sourceTree = "<group>"; };
+		52FD92571D137A0A003FE27C /* CarMarker+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarMarker+CoreDataProperties.m"; sourceTree = "<group>"; };
+		52FD92581D137A0A003FE27C /* CarMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarMarker.h; sourceTree = "<group>"; };
+		52FD92591D137A0A003FE27C /* CarMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarMarker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD92551D1375D1003FE27C /* CoreData.framework in Frameworks */,
+				520052381D10FF5000E32A31 /* CoreLocation.framework in Frameworks */,
 				52B729E81CF618E3009D4A09 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +68,12 @@
 		52B729C11CF61508009D4A09 = {
 			isa = PBXGroup;
 			children = (
+				52FD92561D137A0A003FE27C /* CarMarker+CoreDataProperties.h */,
+				52FD92571D137A0A003FE27C /* CarMarker+CoreDataProperties.m */,
+				52FD92581D137A0A003FE27C /* CarMarker.h */,
+				52FD92591D137A0A003FE27C /* CarMarker.m */,
+				52FD92541D1375D1003FE27C /* CoreData.framework */,
+				520052371D10FF5000E32A31 /* CoreLocation.framework */,
 				52B729E71CF618E3009D4A09 /* MapKit.framework */,
 				52B729CC1CF61508009D4A09 /* Parkd */,
 				52B729CB1CF61508009D4A09 /* Products */,
@@ -72,6 +93,8 @@
 			children = (
 				52B729D01CF61508009D4A09 /* AppDelegate.h */,
 				52B729D11CF61508009D4A09 /* AppDelegate.m */,
+				520052391D11052300E32A31 /* MainScreen.h */,
+				5200523A1D11052300E32A31 /* MainScreen.m */,
 				52B729D61CF61508009D4A09 /* Main.storyboard */,
 				52B729E91CF61CD2009D4A09 /* MapViewController.h */,
 				52B729EA1CF61CD2009D4A09 /* MapViewController.m */,
@@ -170,8 +193,11 @@
 				52B729EB1CF61CD2009D4A09 /* MapViewController.m in Sources */,
 				52B729D21CF61508009D4A09 /* AppDelegate.m in Sources */,
 				52CD32801D0D04110044C121 /* DisplayDistance.m in Sources */,
+				52FD925A1D137A0A003FE27C /* CarMarker+CoreDataProperties.m in Sources */,
 				52B729CF1CF61508009D4A09 /* main.m in Sources */,
+				52FD925B1D137A0A003FE27C /* CarMarker.m in Sources */,
 				52AC05C01CFFCC0C0013E31F /* CarLocation.m in Sources */,
+				5200523B1D11052300E32A31 /* MainScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
