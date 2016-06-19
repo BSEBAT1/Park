@@ -9,6 +9,7 @@
 #import "MainScreen.h"
 #import "CarMarker.h"
 #import <CoreData/CoreData.h>
+#import "AppDelegate.h"
 
 @interface MainScreen ()
 @property (strong, nonatomic) IBOutlet UILabel *LatitudeValue;
@@ -31,6 +32,12 @@
     } else {
         NSLog(@"Location services are not enabled");
     }
+  
+//    managedObjectContext = [[[UIApplication sharedApplication] delegate] managedObjectContext];
+ 
+   
+
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -44,10 +51,21 @@
     self.Longitudevalue.text = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
 }
 - (IBAction)Set_Location:(id)sender {
-//  [[[UIApplication sharedApplication] delegate] managedObjectContext];
     
-//    
-//    NSManagedObjectContext *mymo=[NSEntityDescription insertNewObjectForEntityForName:@"CarMarker" inManagedObjectContext:;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+  
+    
+    CarMarker *currentlocation =[NSEntityDescription insertNewObjectForEntityForName:@"Carmarker" inManagedObjectContext:context];
+    [currentlocation setLocation:self.pinplace];
+    
+    NSError *error = nil;
+    if ([context save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+    
+    
+    
 }
 /*
 #pragma mark - Navigation

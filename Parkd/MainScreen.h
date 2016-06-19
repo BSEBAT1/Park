@@ -16,4 +16,5 @@
 @interface MainScreen : UIViewController<CLLocationManagerDelegate>
 @property (nonatomic,strong) CLLocationManager *locationManager;
 
+
 @end

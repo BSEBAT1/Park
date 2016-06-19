@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "DisplayDistance.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 @property MKRoute *route_options;
