@@ -13,7 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CarMarker : NSManagedObject
+@property (nullable, nonatomic, retain) NSNumber *longitude;
 @property (nullable, nonatomic, retain) id location;
+@property (nullable, nonatomic, retain) NSNumber *latitude;
 
 @end
 

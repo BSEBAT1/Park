@@ -56,7 +56,13 @@
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "Sebat-Tech-LLC.Parkd" in the application's documents directory.
+     NSLog(@"%@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory  inDomains:NSUserDomainMask] lastObject]);
+    
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    
+    
+    
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
@@ -92,7 +98,10 @@
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
+        
     }
+    
+   
     
     return _persistentStoreCoordinator;
 }

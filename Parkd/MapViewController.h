@@ -15,6 +15,5 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *Map;
 @property(nonatomic, retain) CLLocationManager *locationManager;
-- (IBAction)Parkd:(id)sender;
 
 @end

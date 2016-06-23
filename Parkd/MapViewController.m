@@ -9,11 +9,14 @@
 #import "MapViewController.h"
 #import "DisplayDistance.h"
 #import "AppDelegate.h"
+#import "CarMarker.h"
 
 @interface MapViewController ()
 @property MKRoute *route_options;
 @property MKDirections *go_directions;
 @property CLLocationCoordinate2D carlocation_cord;
+@property NSNumber *latitude;
+@property NSNumber *longitude;
 
 @end
 
@@ -42,10 +45,12 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
+    
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
     NSLog(@"%@", [self deviceLocation]);
+    
     
     //View Area
     MKCoordinateRegion region = { { 0.0, 0.0 }, { 0.0, 0.0 } };
@@ -54,8 +59,27 @@
     region.span.longitudeDelta = 0.005f;
     region.span.longitudeDelta = 0.005f;
     [_Map setRegion:region animated:YES];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     
-   self.carlocation_cord=CLLocationCoordinate2DMake(40.7176582, -73.689845);
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CarMarker"];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    int i=[results count]-1;
+    CarMarker *cart=[results objectAtIndex:i];
+    NSLog(@"the latitude is %@",cart.latitude);
+    NSLog(@"the longtitude is %@",cart.longitude);
+    
+    
+    
+   self.carlocation_cord=CLLocationCoordinate2DMake([cart.latitude doubleValue],[cart.longitude doubleValue]);
     
     CarLocation *carlocation=[[CarLocation alloc]initWithTitle:@"Your Car" Location:self.carlocation_cord];
     
@@ -208,9 +232,5 @@
 }
 */
 
-- (IBAction)Parkd:(id)sender {
-    
-    [super viewDidLoad];
-    NSLog(@"DIRECTIONS");
-}
+
 @end

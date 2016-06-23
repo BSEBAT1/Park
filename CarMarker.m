@@ -11,7 +11,8 @@
 
 @implementation CarMarker
 @dynamic location;
-
+@dynamic latitude;
+@dynamic longitude;
 
 + (Class)transformedValueClass
 {
