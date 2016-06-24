@@ -17,10 +17,16 @@
 @property CLLocationCoordinate2D carlocation_cord;
 @property NSNumber *latitude;
 @property NSNumber *longitude;
+@property (nonatomic) BOOL start_navigation;
+
+
+
 
 @end
 
 @implementation MapViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,19 +35,30 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate=self;
     [self.locationManager requestWhenInUseAuthorization];
-  self.Map.showsUserLocation=YES;
+     self.Map.showsUserLocation=YES;
     [self.Map setMapType:MKMapTypeStandard];
     [self.Map setZoomEnabled:YES];
     [self.Map setScrollEnabled:YES];
     
     
     
+   
     
     
    
 }
 
+- (IBAction)Start_Navigation:(id)sender {
+    
+    self.start_navigation=YES;
+    
+    
+}
 
+
+- (IBAction)End_Navigation:(id)sender {
+    self.start_navigation=NO;
+}
 
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -85,7 +102,7 @@
     
     [self.Map addAnnotation:carlocation];
     
-    [self drawmap];
+    
     
     
 }
@@ -151,9 +168,13 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
-    [self.Map setRegion:[self.Map regionThatFits:region] animated:YES];
-    [self drawmap];
+    if (self.start_navigation) {
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
+        [self.Map setRegion:[self.Map regionThatFits:region] animated:YES];
+        [self drawmap];
+    }
+    
+    
     
     
     

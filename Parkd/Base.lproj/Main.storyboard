@@ -65,24 +65,40 @@
         <!--Map View Controller-->
         <scene sceneID="MmU-v4-Bb6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKm-fa-qgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dA3-1E-Ax4" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IXp-KL-Os2"/>
                         <viewControllerLayoutGuide type="bottom" id="TX0-gi-VHN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WwH-9Z-oVP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SLB-yf-TVw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFL-Lc-PhQ">
-                                <rect key="frame" x="0.0" y="-7" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="-7" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Parkd" id="fqm-iq-tUI"/>
                                 </items>
                             </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-VA-69k">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Start Navigation" width="149" id="zEf-rk-qQb">
+                                        <connections>
+                                            <action selector="Start_Navigation:" destination="dA3-1E-Ax4" id="cB6-6i-4zT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="End Navigation" id="KL1-zw-9a0">
+                                        <connections>
+                                            <action selector="End_Navigation:" destination="dA3-1E-Ax4" id="DfA-wW-tfl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -96,14 +112,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kfv-5o-pse"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Map" destination="SLB-yf-TVw" id="4qQ-ox-Clh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NKm-fa-qgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3220.5" y="431.5"/>
+            <point key="canvasLocation" x="3220" y="431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fb4-nu-fuf">
