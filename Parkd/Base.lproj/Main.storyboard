@@ -65,7 +65,6 @@
         <!--Map View Controller-->
         <scene sceneID="MmU-v4-Bb6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NKm-fa-qgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dA3-1E-Ax4" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IXp-KL-Os2"/>
@@ -117,6 +116,7 @@
                         <outlet property="Map" destination="SLB-yf-TVw" id="4qQ-ox-Clh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKm-fa-qgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3220" y="431"/>
         </scene>
