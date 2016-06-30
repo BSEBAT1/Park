@@ -207,7 +207,7 @@
         annotationView=carlocation_cor.annotationView;
         NSLog(@"FIRST IF STATEMENT");
         
-        
+        annotationView.rightCalloutAccessoryView = [self yesButton];
         
     }
     return annotationView;
@@ -242,6 +242,28 @@
 
 
 
+- (UIButton *)yesButton {
+    
+    UIImage *image=[UIImage imageNamed:@"button"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, image.size.width, image.size.height); // don't use auto layout
+ [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventPrimaryActionTriggered];
+    
+    return button;
+}
+
+- (IBAction)didTapButton:(id)sender
+{
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.carlocation_cord addressDictionary:nil];
+    MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
+    item.name = @"Your Car";
+    [item openInMapsWithLaunchOptions:nil];
+    
+    
+    
+}
 
 /*
 #pragma mark - Navigation
