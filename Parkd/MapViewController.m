@@ -89,18 +89,54 @@
         abort();
     }
     
-    int i=[results count]-1;
-    CarMarker *cart=[results objectAtIndex:i];
-    NSLog(@"the latitude is %@",cart.latitude);
-    NSLog(@"the longtitude is %@",cart.longitude);
+    if ([results count]>0) {
+        int i=[results count]-1;
+        CarMarker *cart=[results objectAtIndex:i];
+        NSLog(@"the latitude is %@",cart.latitude);
+        NSLog(@"the longtitude is %@",cart.longitude);
+        
+        
+        
+        self.carlocation_cord=CLLocationCoordinate2DMake([cart.latitude doubleValue],[cart.longitude doubleValue]);
+        
+        CarLocation *carlocation=[[CarLocation alloc]initWithTitle:@"Your Car" Location:self.carlocation_cord];
+        
+        [self.Map addAnnotation:carlocation];
+        
+    }
+    else{
+     
+        
+        UIAlertController * alert=[UIAlertController
+                                   alertControllerWithTitle:@"No Locations Saved"
+                                   message:@"Save A Car Location First!"
+                                   preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+        [self.navigationController popToViewController:self.navigationController.viewControllers[0] animated:YES];
+                                 
+                             }];
+        
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+
+        
+      [NSThread sleepForTimeInterval:1];
+        
+        
+        
+        
+        
+        
+        
+    }
     
-    
-    
-   self.carlocation_cord=CLLocationCoordinate2DMake([cart.latitude doubleValue],[cart.longitude doubleValue]);
-    
-    CarLocation *carlocation=[[CarLocation alloc]initWithTitle:@"Your Car" Location:self.carlocation_cord];
-    
-    [self.Map addAnnotation:carlocation];
+   
     
     
     
